@@ -47,7 +47,7 @@ function pageCanvasLD(w, h) {
 
   function next() {
     //go to next task
-    clear()
+    background(220);
     opgaver++;
     opgave(opgaver);
     h1.html("Opgave " + opgaver);
@@ -55,7 +55,7 @@ function pageCanvasLD(w, h) {
 
   function before() {
     //go to task before
-    clear()
+    background(220);
     opgaver--;
     opgave(opgaver);
     h1.html("Opgave " + opgaver);
