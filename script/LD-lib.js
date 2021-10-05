@@ -11,6 +11,10 @@ function wait(ms) {
   }
 }
 
+function LDTest() {
+  console.log("working");
+}
+
 //creates a canvas with other stuff
 function CanvasLD(w, h) {
   var beforeC = createDiv(); //Before Canvas
