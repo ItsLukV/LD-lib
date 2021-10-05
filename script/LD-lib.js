@@ -16,7 +16,7 @@ function LDTest() {
 }
 
 //creates a canvas with other stuff
-function CanvasLD(w, h) {
+function pageCanvasLD(w, h) {
   var beforeC = createDiv(); //Before Canvas
   var WithC = createDiv(); //With Canvas
   var AfterC = createDiv(); //After Canvas

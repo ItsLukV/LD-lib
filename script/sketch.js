@@ -1,5 +1,5 @@
 function setup() {
-  CanvasLD(1000, 400);
+  pageCanvasLD(1000, 400);
 }
 
 function opgave1() {
