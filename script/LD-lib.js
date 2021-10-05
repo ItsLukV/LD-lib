@@ -11,12 +11,12 @@ function wait(ms) {
   }
 }
 
-function LDTest() {
+function TestLD() {
   console.log("working");
 }
 
 //creates a canvas with other stuff
-function pageCanvasLD(w, h) {
+function CanvasLD(w, h) {
   var beforeC = createDiv(); //Before Canvas
   var WithC = createDiv(); //With Canvas
   var AfterC = createDiv(); //After Canvas

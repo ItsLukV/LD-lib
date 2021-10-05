@@ -8,9 +8,9 @@ CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@latest/LD-lib.js
 
 ## Function List
 
-1. wait
-2. TestLD
-3. CanvasLD
+1. [wait](https://github.com/ItsLukV/LD-lib/tree/test#wait)
+2. [TestLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
+3. [CanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
 
 ---
 
