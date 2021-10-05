@@ -8,6 +8,6 @@ function wait(ms) {
 }
 
 
-function test(x){
-console.log(x)
+function testLD(){
+console.log("LD-lib is working")
 }
