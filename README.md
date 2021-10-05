@@ -1,2 +1,2 @@
 # LD-lib
-link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@main/LD-lib.js
+link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@latest/LD-lib.js
