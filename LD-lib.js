@@ -7,7 +7,7 @@ function wait(ms) {
   }
 }
 
-
+//Lukv
 function testLD(){
 console.log("LD-lib is working!!")
 }
