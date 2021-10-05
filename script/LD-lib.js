@@ -60,114 +60,14 @@ function CanvasLD(w, h) {
   }
 
   function opgave(x) {
-    switch (x) {
-      case 1:
-        try {
-          opgave1();
-        } catch (err) {
-          print("failed");
-        }
-        break;
+    //calling task
+    var NumberOfTask = x;
+    var methodprefix = "opgave";
 
-      case 2:
-        try {
-          opgave2();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 3:
-        try {
-          opgave3();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 4:
-        try {
-          opgave4();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 5:
-        try {
-          opgave5();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 6:
-        try {
-          opgave6();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 7:
-        try {
-          opgave7();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 8:
-        try {
-          opgave8();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 9:
-        try {
-          opgave9();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 10:
-        try {
-          opgave10();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 11:
-        try {
-          opgave11();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 12:
-        try {
-          opgave12();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      case 13:
-        try {
-          opgave13();
-        } catch (err) {
-          print("failed");
-        }
-        break;
-
-      default:
-        background(220);
-        break;
+    try {
+      window[methodprefix + NumberOfTask]();
+    } catch (err) {
+      print("failed to call opgave " + x);
     }
   }
 }
