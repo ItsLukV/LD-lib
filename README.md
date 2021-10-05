@@ -52,8 +52,9 @@ It makes a canvas, a HTML \<h1> tag and two HTML buttons.<br>
 
 The Buttons changes between diffent tasks, while updating the \<h1> tag, which show the current task number.<br>
 
-To use the function you need to put in `setup()`, then you need to put in 2 arguments. The first one is the width of the canvas and the second one is the height.
+To use the function you need to put in `setup()`, then you need to put in 2 arguments. The first one is the width of the canvas and the second one is the height.<br>
 
+To add a task you need use `opgave[number]()`, the number of the task which goes from 0 to inf.
 ```js
 function setup() {
   CanvasLD(1000, 400);
