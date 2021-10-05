@@ -9,5 +9,5 @@ function wait(ms) {
 
 
 function testLD(){
-console.log("LD-lib is working")
+console.log("LD-lib is working!!")
 }
