@@ -63,3 +63,9 @@ function setup() {
 
 This makes a canvas with a width of 1000 and a height of 400
 ![](https://i.imgur.com/Pbphirc.png)
+
+---
+
+## Know bugs
+
+1. Fill color does, not restart when you which task.
