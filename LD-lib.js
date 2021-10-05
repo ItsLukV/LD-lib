@@ -6,3 +6,8 @@ function wait(ms) {
     end = new Date().getTime();
   }
 }
+
+
+function test(x){
+console.log(x)
+}
