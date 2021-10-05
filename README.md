@@ -10,7 +10,7 @@ CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib/LD-lib.js
 
 1. [wait](https://github.com/ItsLukV/LD-lib/tree/test#wait)
 2. [TestLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
-3. [CanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
+3. [pageCanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
 
 ---
 
@@ -45,9 +45,9 @@ TestLD();
 
 ---
 
-### CanvasLD
+### pageCanvasLD
 
-`CanvasLD(w, h)` is function made for [P5.js](https://p5js.org/).
+`pageCanvasLD(w, h)` is function made for [P5.js](https://p5js.org/).
 It makes a canvas, a HTML \<h1> tag and two HTML buttons.<br>
 
 The Buttons changes between diffent tasks, while updating the \<h1> tag, which show the current task number.<br>
@@ -57,7 +57,7 @@ To use the function you need to put in `setup()`, then you need to put in 2 argu
 To add a task you need use `opgave[number]()`, the number of the task which goes from 0 to inf.
 ```js
 function setup() {
-  CanvasLD(1000, 400);
+  pageCanvasLD(1000, 400);
 }
 ```
 
