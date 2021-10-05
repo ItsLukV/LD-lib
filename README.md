@@ -2,7 +2,7 @@
 
 LD-lib is made by @dendersen and @ItsLukV
 
-CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib/LD-lib.js
+CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@v1.0/LD-lib.js
 
 ---
 
