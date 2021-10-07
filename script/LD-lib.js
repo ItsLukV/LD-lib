@@ -20,7 +20,7 @@ function CanvasLD(w, h) {
   var beforeC = createDiv(); //Before Canvas
   var WithC = createDiv(); //With Canvas
   var AfterC = createDiv(); //After Canvas
-  var opgaver = 0;
+  var tasks = 0;
 
   //Creates a button to go to the task before
   var ButtonBefore = createButton("<").parent(beforeC);
@@ -38,7 +38,7 @@ function CanvasLD(w, h) {
   ButtonNext.style("height", h + "px");
   ButtonNext.style("width", "4em");
 
-  var h1 = createElement("h1", "Opgave " + opgaver).parent(WithC);
+  var h1 = createElement("h1", "task " + tasks).parent(WithC);
   h1.style("text-align", "center");
 
   //centers all items on body
@@ -47,27 +47,27 @@ function CanvasLD(w, h) {
 
   function next() {
     //go to next task
-    opgaver++;
-    opgave(opgaver);
-    h1.html("Opgave " + opgaver);
+    tasks++;
+    task(tasks);
+    h1.html("task " + tasks);
   }
 
   function before() {
     //go to task before
-    opgaver--;
-    opgave(opgaver);
-    h1.html("Opgave " + opgaver);
+    tasks--;
+    task(tasks);
+    h1.html("task " + tasks);
   }
 
-  function opgave(x) {
+  function task(x) {
     //calling task
     var NumberOfTask = x;
-    var methodprefix = "opgave";
+    var methodprefix = "task";
 
     try {
       window[methodprefix + NumberOfTask]();
     } catch (err) {
-      print("failed to call opgave " + x);
+      print("failed to call task " + x);
     }
   }
 }
