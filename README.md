@@ -8,9 +8,18 @@ CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@v1.0/LD-lib.js
 
 ## Function List
 
-1. [wait](https://github.com/ItsLukV/LD-lib/tree/test#wait)
-2. [TestLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
-3. [pageCanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
+1. [Javascript functions](https://github.com/ItsLukV/LD-lib/tree/test#Javascript-functions)
+   1. [wait](https://github.com/ItsLukV/LD-lib/tree/test#wait)
+   2. [TestLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
+2. [P5.js addons](https://github.com/ItsLukV/LD-lib/tree/test#P5.js-addons)
+   1. [pageCanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#canvasld)
+   2. [randomColor](https://github.com/ItsLukV/LD-lib/tree/test#randomcolor)
+
+---
+
+## Javascript functions
+
+These function works as just vanilla Javascript functions
 
 ---
 
@@ -38,23 +47,31 @@ The delay needs to be in milliseconds.
 `TestLD()` is a function to test, if LD-lib works then it will return "working" in the console
 
 ```js
-TestLD();
+function setup() {
+  TestLD();
+}
 
 //returns "working"
 ```
 
 ---
 
+## P5.js addons
+
+These function are made for library called [P5.js](https://p5js.org/), so they will not will vanilla Javascript.
+
+---
+
 ### pageCanvasLD
 
-`pageCanvasLD(w, h)` is function made for [P5.js](https://p5js.org/).
+`pageCanvasLD(w, h)` is function made for [P5.js](https://p5js.org/). **This function works properly only if P5.js is loaded in.**
+<br>
 It makes a canvas, a HTML \<h1> tag and two HTML buttons.<br>
 
-The Buttons changes between diffent tasks, while updating the \<h1> tag, which show the current task number.<br>
+The Buttons changes between diffent tasks, while updating the \<h1> tag, which will show the current task number.<br>
 
 To use the function you need to put in `setup()`, then you need to put in 2 arguments. The first one is the width of the canvas and the second one is the height.<br>
 
-To add a task you need use `opgave[number]()`, the number of the task which goes from 0 to inf.
 ```js
 function setup() {
   pageCanvasLD(1000, 400);
@@ -64,8 +81,35 @@ function setup() {
 This makes a canvas with a width of 1000 and a height of 400
 ![](https://i.imgur.com/Pbphirc.png)
 
+To add a task you need use `opgave[number]()`, the number of the task which goes from 0 to infinity.
+
+```js
+function setup() {
+  pageCanvasLD(1000, 400);
+}
+
+function opgave1() {
+  ellipse(200, 200, 50);
+}
+```
+
+---
+
+### randomColor
+
+`randomColor()` is a function made for [P5.js](https://p5js.org/). **This function works properly only if P5.js is loaded in.**
+<br>
+This function returns a random rgb string, which can be used inside of a fill function
+
+```js
+function draw() {
+  fill(randomColor());
+  ellipse(200, 200, 50);
+}
+```
+
 ---
 
 ## Know bugs
 
-1. Fill color does, not restart when you which task.
+1. Non known bugs

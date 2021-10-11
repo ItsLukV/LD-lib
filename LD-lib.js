@@ -48,6 +48,9 @@ function pageCanvasLD(w, h) {
   function next() {
     //go to next task
     background(220);
+    fill(255);
+    stroke(0);
+    strokeWeight(1);
     opgaver++;
     opgave(opgaver);
     h1.html("Opgave " + opgaver);
@@ -56,6 +59,9 @@ function pageCanvasLD(w, h) {
   function before() {
     //go to task before
     background(220);
+    fill(255);
+    stroke(0);
+    strokeWeight(1);
     opgaver--;
     opgave(opgaver);
     h1.html("Opgave " + opgaver);
@@ -72,4 +78,15 @@ function pageCanvasLD(w, h) {
       print("failed to call opgave " + x);
     }
   }
+}
+
+function randomColor() {
+  var colorArray = [];
+  for (let i = 0; i < 3; i++) {
+    var randomNumber = random(0, 255);
+    colorArray.push(Math.ceil(randomNumber));
+  }
+  colorArray.join();
+  result = "rgb" + "(" + colorArray + ")";
+  return result;
 }
