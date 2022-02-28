@@ -75,7 +75,7 @@ function pageCanvasLD(w, h) {
     try {
       window[methodprefix + NumberOfTask]();
     } catch (err) {
-      print("failed to call opgave " + x);
+      console.log("failed to call opgave " + x);
     }
   }
 }
@@ -93,58 +93,82 @@ function randomColor() {
 
 const graffSaverArray_No_Touch__For_Real__ = []
 
-function grafferLD (Gwidth, Gheight, locationX, locationY, calculations, operations,restart){
-  let y, x, runNumber, density, colR, colG, colB, action
-
+function grafferLD (Gwidth, Gheight, locationX, locationY, calculations, operations,density, reset){
+  let y, x, runNumber, colR, colG, colB, action
+  let LI = Gwidth/100
   if (reset) for (let i = 0; i<graffSaverArray_No_Touch__For_Real__.length; i++){
   graffSaverArray_No_Touch__For_Real__ [i] = undefined
-  }else if (graffSaverArray_No_Touch__For_Real__[-1]){
+  graffSaverArray_No_Touch__For_Real__ [-10] = false
+  }else if (graffSaverArray_No_Touch__For_Real__[-10]){
     let j = 0
-    graffSaverArray_No_Touch__For_Real__ [j] = y
+    y = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = x
+    x = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = runNumber
+    runNumber = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = density
+    colR = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = colR
+    colG = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = colG
+    colB = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = colB
+    action = graffSaverArray_No_Touch__For_Real__ [j]
     j++
-    graffSaverArray_No_Touch__For_Real__ [j] = action
-    j++
+  }else{
+    y = 0
+    x = -Gwidth/2
+    runNumber = 0
+    colR = 255
+    colG = 0
+    colB = 0
+    action = 0
+    graffSaverArray_No_Touch__For_Real__ [-10] = true
+
+    strokeWeight(0)
+    fill(80)
+    rect(locationX, locationY, Gwidth, Gheight)
+
+    stroke(255)
+    strokeWeight(LI)
+    line(Gwidth/2+locationX, Gheight-(Gheight/30)+locationY, Gwidth/2+locationX, (Gheight/30)+locationY)
+    line(Gwidth-(Gwidth/40)+locationX, Gheight/2+locationY, (Gwidth/40)+locationX, Gheight/2+locationY)
   }
 
   function pointDraw(id,CC){ //makes a point showing where is currently being drawn
-    if(CC) y = calculations [id]()
+    if(x>Gwidth/2-Gwidth/400) return
+    if(x<-Gwidth/2+Gwidth/400)return
+    
+    if(CC) y = calculations [id](x)
+    
+    if(y>Gheight/2-Gheight/400) return
+    if(y<-Gheight/2+Gheight/400) return
+    
     strokeWeight(LI/3)
     point(x+Gwidth/2+locationX,-y+Gheight/2+locationY)
     
     //draws lines on x and y for drawn point
     stroke(colR, colG, colB)
-    point(x+Gwidth/2+locationX,height/2+locationY)
-    point(width/2+locationX,-y+Gheight/2+locationY)
+    point(x+Gwidth/2+locationX,Gheight/2+locationY)
+    point(Gwidth/2+locationX,-y+Gheight/2+locationY)
     strokeWeight(LI)
     stroke(0)
   }
   function pointMove(){
-    if(x<width/2){
-      if(runNumber>30){
-      x+=width/(runNumber*density*(height/50))
+    if(x<Gwidth/2){
+      if(runNumber>15){
+      x+=Gwidth/(runNumber*density*(Gheight/50))
       }else{
-        x+=width/(runNumber*density*(height/500))
+        x+=Gwidth/(runNumber*density*(Gheight/500))
       }
     }else{
-      x=-width/2
+      x=-Gwidth/2
       colorControl()
     }
   }
   function colorControl() {
     runNumber++
-    print(runNumber)
+    console.log(runNumber)
     if (action < 256) {
       colR -= 32
       colB += 32
@@ -165,7 +189,7 @@ function grafferLD (Gwidth, Gheight, locationX, locationY, calculations, operati
   function pointDrawMulty(id){
     let TT =true
     for(let i  = 0; i!=2;i++){
-      y = calculate[id](TT)
+      y = calculations[id](TT,x)
       pointDraw(0,false)
       TT=false
     }
@@ -178,5 +202,22 @@ function grafferLD (Gwidth, Gheight, locationX, locationY, calculations, operati
       pointDraw(i,true)
     }
     pointMove()
+  }
+  {
+    let jJJ = 0
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = y
+    jJJ++
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = x
+    jJJ++
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = runNumber
+    jJJ++
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = colR
+    jJJ++
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = colG
+    jJJ++
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = colB
+    jJJ++
+    graffSaverArray_No_Touch__For_Real__ [jJJ] = action
+  jJJ++
   }
 }
