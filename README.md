@@ -14,6 +14,7 @@ CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@v1.0/LD-lib.js
 2. [P5.js addons](https://github.com/ItsLukV/LD-lib/tree/test#P5.js-addons)
    1. [pageCanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#canvasld)
    2. [randomColor](https://github.com/ItsLukV/LD-lib/tree/test#randomcolor)
+   3. [grafferLD]()
 
 ---
 
@@ -106,6 +107,27 @@ function draw() {
   fill(randomColor());
   ellipse(200, 200, 50);
 }
+```
+
+---
+
+### grafferLD
+
+`grafferLD()` is a function made for [P5.js](https://p5js.org/). **This function works properly only if P5.js is loaded in.**
+<br>
+This function creates and runs a graffing calculator on a canvas. To do this use .start() and .setup<br>
+to restart the graff use .reset()
+
+```js
+function setup(){
+  variable = new grafferLD()
+  variable.start(Width, Height, LocationX, LocationY, Calculations[], Operations[], Density)
+}
+
+function draw() {
+  variable.step()
+}
+
 ```
 
 ---
