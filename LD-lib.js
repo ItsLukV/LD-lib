@@ -91,133 +91,139 @@ function randomColor() {
   return result;
 }
 
-const graffSaverArray_No_Touch__For_Real__ = []
+function grafferLD (){
+  /**
+   * 
+   * @param {number} Width 
+   * @param {number} Height 
+   * @param {number} LocationX 
+   * @param {number} LocationY 
+   * @param {function[]} Calculations 
+   * @param {boolean[]} Operations 
+   * @param {number} Density 
+   */
+  this.start = function (Width, Height, LocationX, LocationY, Calculations, Operations, Density) { //skal laves helt om
+    
+    this.Gwidth = Width
+    this.Gheight = Height
+    this.locationX = LocationX
+    this.locationY = LocationY
+    this.calculations = Calculations
+    this.operations = Operations
+    this.density = Density
 
-function grafferLD (Gwidth, Gheight, locationX, locationY, calculations, operations,density, reset){
-  let y, x, runNumber, colR, colG, colB, action
-  let LI = Gwidth/100
-  if (reset) for (let i = 0; i<graffSaverArray_No_Touch__For_Real__.length; i++){
-  graffSaverArray_No_Touch__For_Real__ [i] = undefined
-  graffSaverArray_No_Touch__For_Real__ [-10] = false
-  }else if (graffSaverArray_No_Touch__For_Real__[-10]){
-    let j = 0
-    y = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-    x = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-    runNumber = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-    colR = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-    colG = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-    colB = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-    action = graffSaverArray_No_Touch__For_Real__ [j]
-    j++
-  }else{
-    y = 0
-    x = -Gwidth/2
-    runNumber = 0
-    colR = 255
-    colG = 0
-    colB = 0
-    action = 0
-    graffSaverArray_No_Touch__For_Real__ [-10] = true
-
-    strokeWeight(0)
     fill(80)
-    rect(locationX, locationY, Gwidth, Gheight)
+    noStroke()
+    rect(this.locationX,this.locationY,this.Gwidth,this.Gheight)
+    this.y = 0; 
+    this.x = -this.Gwidth/2; 
+    this.runNumber = 0; 
+    this.colR = 255; 
+    this.colG = 0; 
+    this.colB = 0; 
+    this.action = 0;
+    
+    this.LI = this.Gwidth/100
 
+    console.log( this.Gwidth, this.Gheight, this.locationX, this.locationY, this.calculations, this.operations, this.density, this.y, this.x, this.runNumber, this.colR, this.colG, this.colB, this.action, this.LI,)
+
+    this.reset
     stroke(255)
-    strokeWeight(LI)
-    line(Gwidth/2+locationX, Gheight-(Gheight/30)+locationY, Gwidth/2+locationX, (Gheight/30)+locationY)
-    line(Gwidth-(Gwidth/40)+locationX, Gheight/2+locationY, (Gwidth/40)+locationX, Gheight/2+locationY)
+    strokeWeight(this.LI)
+    line(this.Gwidth/2+this.locationX, this.Gheight-(this.Gheight/30)+this.locationY, this.Gwidth/2+this.locationX, (this.Gheight/30)+this.locationY)
+    line(this.Gwidth-(this.Gwidth/40)+this.locationX, this.Gheight/2+this.locationY, (this.Gwidth/40)+this.locationX, this.Gheight/2+this.locationY)
+    }
+  
+
+
+  this.Gwidth; this.Gheight; this.locationX; this.locationY; this.calculations; this.operations; this.density;
+  this.y; this.x; this.runNumber; this.colR; this.colG; this.colB; this.action; this.LI;
+  
+  this.reset = function () {
+    fill(80)
+    noStroke()
+    rect(this.locationX,this.locationY,this.Gwidth,this.Gheight)
+    this.y = 0; 
+    this.x = -this.Gwidth/2; 
+    this.runNumber = 0; 
+    this.colR = 255; 
+    this.colG = 0; 
+    this.colB = 0; 
+    this.action = 0;
   }
 
-  function pointDraw(id,CC){ //makes a point showing where is currently being drawn
-    if(x>Gwidth/2-Gwidth/400) return
-    if(x<-Gwidth/2+Gwidth/400)return
+  this.pointDraw = function (id,CC){ //makes a point showing where is currently being drawn
+    if(this.x>this.Gwidth/2-this.Gwidth/400) return
+    if(this.x<-this.Gwidth/2+this.Gwidth/400)return
     
-    if(CC) y = calculations [id](x)
+    if(CC) this.y = this.calculations [id](this.x)
     
-    if(y>Gheight/2-Gheight/400) return
-    if(y<-Gheight/2+Gheight/400) return
+    if(this.y>this.Gheight/2-this.Gheight/400) return
+    if(this.y<-this.Gheight/2+this.Gheight/400) return
     
-    strokeWeight(LI/3)
-    point(x+Gwidth/2+locationX,-y+Gheight/2+locationY)
+    strokeWeight(this.LI/3)
+    point(this.x+this.Gwidth/2+this.locationX,-this.y+this.Gheight/2+this.locationY)
     
     //draws lines on x and y for drawn point
-    stroke(colR, colG, colB)
-    point(x+Gwidth/2+locationX,Gheight/2+locationY)
-    point(Gwidth/2+locationX,-y+Gheight/2+locationY)
-    strokeWeight(LI)
+    stroke(this.colR, this.colG, this.colB)
+    point(this.x+this.Gwidth/2+this.locationX,this.Gheight/2+this.locationY)
+    point(this.Gwidth/2+this.locationX,-this.y+this.Gheight/2+this.locationY)
+    strokeWeight(this.LI)
     stroke(0)
   }
-  function pointMove(){
-    if(x<Gwidth/2){
-      if(runNumber>15){
-      x+=Gwidth/(runNumber*density*(Gheight/50))
+
+  this.pointMove = function(){
+    console.log(this.x,"x")
+    if(this.x<this.Gwidth/2){
+      if(this.runNumber>15){
+      this.x+=int(this.Gwidth/(this.runNumber*this.density*(this.Gheight/50)))
       }else{
-        x+=Gwidth/(runNumber*density*(Gheight/500))
+        this.x+=int(this.Gwidth/(this.runNumber*this.density*(this.Gheight/500)))
       }
     }else{
-      x=-Gwidth/2
-      colorControl()
+      this.x=-this.Gwidth/2
+      this.colorControl()
     }
   }
-  function colorControl() {
-    runNumber++
-    console.log(runNumber)
-    if (action < 256) {
-      colR -= 32
-      colB += 32
-      action += 32
-    } else if (action < 512) {
-      colB -= 32
-      colG += 32
-      action += 32
-    } else if (action < 768) {
-      colG -= 32
-      colR += 32
-      action += 32
+
+  this.colorControl = function() {
+    this.runNumber++
+    console.log(this.runNumber,"runnumber")
+    if(typeof(runNumber) != Number) runNumber = 0
+    if (this.action < 256) {
+      this.colR -= 32
+      this.colB += 32
+      this.action += 32
+    } else if (this.action < 512) {
+      this.colB -= 32
+      this.colG += 32
+      this.action += 32
+    } else if (this.action < 768) {
+      this.colG -= 32
+      this.colR += 32
+      this.action += 32
     } else {
-      action = 0
+      this.action = 0
     }
-    density += 10
+    this.density += 10
   }
-  function pointDrawMulty(id){
-    let TT =true
-    for(let i  = 0; i!=2;i++){
-      y = calculations[id](TT,x)
-      pointDraw(0,false)
-      TT=false
+
+  this.pointDrawMulty = function (id,x){
+    console.log(int(id),typeof(id),this.x,typeof(this.x))
+    
+      this.y = this.calculations[id](true,this.x)
+      this.pointDraw(0,false)
+      this.y = this.calculations[id](false,this.x)
+      this.pointDraw(0,false)
+  }
+  this.step = function () {
+    for(let i = 0; i<this.operations.length; i++){
+      if(this.operations [i] == true){
+        this.pointDrawMulty(i)
+      }else{
+        this.pointDraw(i,true)
+      }
     }
-  }
-  
-  for(let i = 0; i<operations.length; i++){
-    if(operations [i] == true){
-      pointDrawMulty(i)
-    }else{
-      pointDraw(i,true)
-    }
-    pointMove()
-  }
-  {
-    let jJJ = 0
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = y
-    jJJ++
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = x
-    jJJ++
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = runNumber
-    jJJ++
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = colR
-    jJJ++
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = colG
-    jJJ++
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = colB
-    jJJ++
-    graffSaverArray_No_Touch__For_Real__ [jJJ] = action
-  jJJ++
+    this.pointMove()
   }
 }
