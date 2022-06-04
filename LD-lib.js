@@ -91,139 +91,271 @@ function randomColor() {
   return result;
 }
 
-function grafferLD (){
+function grafferLD() {
   /**
-   * 
-   * @param {number} Width 
-   * @param {number} Height 
-   * @param {number} LocationX 
-   * @param {number} LocationY 
-   * @param {function[]} Calculations 
-   * @param {boolean[]} Operations 
-   * @param {number} Density 
+   *
+   * @param {number} Width
+   * @param {number} Height
+   * @param {number} LocationX
+   * @param {number} LocationY
+   * @param {function[]} Calculations
+   * @param {boolean[]} Operations
+   * @param {number} Density
    */
-  this.start = function (Width, Height, LocationX, LocationY, Calculations, Operations, Density) { //skal laves helt om
-    
-    this.Gwidth = Width
-    this.Gheight = Height
-    this.locationX = LocationX
-    this.locationY = LocationY
-    this.calculations = Calculations
-    this.operations = Operations
-    this.density = Density
+  this.start = function (
+    Width,
+    Height,
+    LocationX,
+    LocationY,
+    Calculations,
+    Operations,
+    Density
+  ) {
+    //skal laves helt om
 
-    fill(80)
-    noStroke()
-    rect(this.locationX,this.locationY,this.Gwidth,this.Gheight)
-    this.y = 0; 
-    this.x = -this.Gwidth/2; 
-    this.runNumber = 0; 
-    this.colR = 255; 
-    this.colG = 0; 
-    this.colB = 0; 
+    this.Gwidth = Width;
+    this.Gheight = Height;
+    this.locationX = LocationX;
+    this.locationY = LocationY;
+    this.calculations = Calculations;
+    this.operations = Operations;
+    this.density = Density;
+
+    fill(80);
+    noStroke();
+    rect(this.locationX, this.locationY, this.Gwidth, this.Gheight);
+    this.y = 0;
+    this.x = -this.Gwidth / 2;
+    this.runNumber = 0;
+    this.colR = 255;
+    this.colG = 0;
+    this.colB = 0;
     this.action = 0;
-    
-    this.LI = this.Gwidth/100
 
-    console.log( this.Gwidth, this.Gheight, this.locationX, this.locationY, this.calculations, this.operations, this.density, this.y, this.x, this.runNumber, this.colR, this.colG, this.colB, this.action, this.LI,)
+    this.LI = this.Gwidth / 100;
 
-    this.reset
-    stroke(255)
-    strokeWeight(this.LI)
-    line(this.Gwidth/2+this.locationX, this.Gheight-(this.Gheight/30)+this.locationY, this.Gwidth/2+this.locationX, (this.Gheight/30)+this.locationY)
-    line(this.Gwidth-(this.Gwidth/40)+this.locationX, this.Gheight/2+this.locationY, (this.Gwidth/40)+this.locationX, this.Gheight/2+this.locationY)
-    }
-  
+    console.log(
+      this.Gwidth,
+      this.Gheight,
+      this.locationX,
+      this.locationY,
+      this.calculations,
+      this.operations,
+      this.density,
+      this.y,
+      this.x,
+      this.runNumber,
+      this.colR,
+      this.colG,
+      this.colB,
+      this.action,
+      this.LI
+    );
 
+    this.reset;
+    stroke(255);
+    strokeWeight(this.LI);
+    line(
+      this.Gwidth / 2 + this.locationX,
+      this.Gheight - this.Gheight / 30 + this.locationY,
+      this.Gwidth / 2 + this.locationX,
+      this.Gheight / 30 + this.locationY
+    );
+    line(
+      this.Gwidth - this.Gwidth / 40 + this.locationX,
+      this.Gheight / 2 + this.locationY,
+      this.Gwidth / 40 + this.locationX,
+      this.Gheight / 2 + this.locationY
+    );
+  };
 
-  this.Gwidth; this.Gheight; this.locationX; this.locationY; this.calculations; this.operations; this.density;
-  this.y; this.x; this.runNumber; this.colR; this.colG; this.colB; this.action; this.LI;
-  
+  this.Gwidth;
+  this.Gheight;
+  this.locationX;
+  this.locationY;
+  this.calculations;
+  this.operations;
+  this.density;
+  this.y;
+  this.x;
+  this.runNumber;
+  this.colR;
+  this.colG;
+  this.colB;
+  this.action;
+  this.LI;
+
   this.reset = function () {
-    fill(80)
-    noStroke()
-    rect(this.locationX,this.locationY,this.Gwidth,this.Gheight)
-    this.y = 0; 
-    this.x = -this.Gwidth/2; 
-    this.runNumber = 0; 
-    this.colR = 255; 
-    this.colG = 0; 
-    this.colB = 0; 
+    fill(80);
+    noStroke();
+    rect(this.locationX, this.locationY, this.Gwidth, this.Gheight);
+    this.y = 0;
+    this.x = -this.Gwidth / 2;
+    this.runNumber = 0;
+    this.colR = 255;
+    this.colG = 0;
+    this.colB = 0;
     this.action = 0;
-  }
+  };
 
-  this.pointDraw = function (id,CC){ //makes a point showing where is currently being drawn
-    if(this.x>this.Gwidth/2-this.Gwidth/400) return
-    if(this.x<-this.Gwidth/2+this.Gwidth/400)return
-    
-    if(CC) this.y = this.calculations [id](this.x)
-    
-    if(this.y>this.Gheight/2-this.Gheight/400) return
-    if(this.y<-this.Gheight/2+this.Gheight/400) return
-    
-    strokeWeight(this.LI/3)
-    point(this.x+this.Gwidth/2+this.locationX,-this.y+this.Gheight/2+this.locationY)
-    
+  this.pointDraw = function (id, CC) {
+    //makes a point showing where is currently being drawn
+    if (this.x > this.Gwidth / 2 - this.Gwidth / 400) return;
+    if (this.x < -this.Gwidth / 2 + this.Gwidth / 400) return;
+
+    if (CC) this.y = this.calculations[id](this.x);
+
+    if (this.y > this.Gheight / 2 - this.Gheight / 400) return;
+    if (this.y < -this.Gheight / 2 + this.Gheight / 400) return;
+
+    strokeWeight(this.LI / 3);
+    point(
+      this.x + this.Gwidth / 2 + this.locationX,
+      -this.y + this.Gheight / 2 + this.locationY
+    );
+
     //draws lines on x and y for drawn point
-    stroke(this.colR, this.colG, this.colB)
-    point(this.x+this.Gwidth/2+this.locationX,this.Gheight/2+this.locationY)
-    point(this.Gwidth/2+this.locationX,-this.y+this.Gheight/2+this.locationY)
-    strokeWeight(this.LI)
-    stroke(0)
-  }
+    stroke(this.colR, this.colG, this.colB);
+    point(
+      this.x + this.Gwidth / 2 + this.locationX,
+      this.Gheight / 2 + this.locationY
+    );
+    point(
+      this.Gwidth / 2 + this.locationX,
+      -this.y + this.Gheight / 2 + this.locationY
+    );
+    strokeWeight(this.LI);
+    stroke(0);
+  };
 
-  this.pointMove = function(){
-    console.log(this.x,"x")
-    if(this.x<this.Gwidth/2){
-      if(this.runNumber>15){
-      this.x+=int(this.Gwidth/(this.runNumber*this.density*(this.Gheight/50)))
-      }else{
-        this.x+=int(this.Gwidth/(this.runNumber*this.density*(this.Gheight/500)))
+  this.pointMove = function () {
+    console.log(this.x, "x");
+    if (this.x < this.Gwidth / 2) {
+      if (this.runNumber > 15) {
+        this.x += int(
+          this.Gwidth / (this.runNumber * this.density * (this.Gheight / 50))
+        );
+      } else {
+        this.x += int(
+          this.Gwidth / (this.runNumber * this.density * (this.Gheight / 500))
+        );
       }
-    }else{
-      this.x=-this.Gwidth/2
-      this.colorControl()
-    }
-  }
-
-  this.colorControl = function() {
-    this.runNumber++
-    console.log(this.runNumber,"runnumber")
-    if(typeof(runNumber) != Number) runNumber = 0
-    if (this.action < 256) {
-      this.colR -= 32
-      this.colB += 32
-      this.action += 32
-    } else if (this.action < 512) {
-      this.colB -= 32
-      this.colG += 32
-      this.action += 32
-    } else if (this.action < 768) {
-      this.colG -= 32
-      this.colR += 32
-      this.action += 32
     } else {
-      this.action = 0
+      this.x = -this.Gwidth / 2;
+      this.colorControl();
     }
-    this.density += 10
-  }
+  };
 
-  this.pointDrawMulty = function (id,x){
-    console.log(int(id),typeof(id),this.x,typeof(this.x))
-    
-      this.y = this.calculations[id](true,this.x)
-      this.pointDraw(0,false)
-      this.y = this.calculations[id](false,this.x)
-      this.pointDraw(0,false)
-  }
+  this.colorControl = function () {
+    this.runNumber++;
+    console.log(this.runNumber, "runnumber");
+    if (typeof runNumber != Number) runNumber = 0;
+    if (this.action < 256) {
+      this.colR -= 32;
+      this.colB += 32;
+      this.action += 32;
+    } else if (this.action < 512) {
+      this.colB -= 32;
+      this.colG += 32;
+      this.action += 32;
+    } else if (this.action < 768) {
+      this.colG -= 32;
+      this.colR += 32;
+      this.action += 32;
+    } else {
+      this.action = 0;
+    }
+    this.density += 10;
+  };
+
+  this.pointDrawMulty = function (id, x) {
+    console.log(int(id), typeof id, this.x, typeof this.x);
+
+    this.y = this.calculations[id](true, this.x);
+    this.pointDraw(0, false);
+    this.y = this.calculations[id](false, this.x);
+    this.pointDraw(0, false);
+  };
   this.step = function () {
-    for(let i = 0; i<this.operations.length; i++){
-      if(this.operations [i] == true){
-        this.pointDrawMulty(i)
-      }else{
-        this.pointDraw(i,true)
+    for (let i = 0; i < this.operations.length; i++) {
+      if (this.operations[i] == true) {
+        this.pointDrawMulty(i);
+      } else {
+        this.pointDraw(i, true);
       }
     }
-    this.pointMove()
-  }
+    this.pointMove();
+  };
 }
+
+this.buttonLD = function () {
+  this.inp;
+  this.w = 100;
+  this.h = 50;
+  this.textColor = { r: 0, g: 0, b: 0 };
+  this.BorderColor = { r: 0, g: 0, b: 0 };
+  this.BackgroudColor = { r: 220, g: 220, b: 220 };
+  this.BackgroudColorHover = { r: 240, g: 240, b: 240 };
+  this.execute = () => {
+    console.log("Mouse is pressed");
+  };
+
+  this.position = function (x, y) {
+    this.x = x;
+    this.y = y;
+  };
+
+  this.size = function (w, h) {
+    this.w = w;
+    this.h = h;
+  };
+
+  this.onPress = function (functionName) {
+    this.execute = functionName;
+  };
+
+  this.setText = function (text) {
+    this.inp = text;
+  };
+
+  this.setColorHover = function (red, green, blue) {
+    this.BackgroudColorHover = { r: red, g: green, b: blue };
+  };
+
+  this.setColor = function (red, green, blue) {
+    this.BackgroudColor = { r: red, g: green, b: blue };
+  };
+
+  this.setTextColor = function (red, green, blue) {
+    this.textColor = { r: red, g: green, b: blue };
+  };
+
+  this.setBorderColor = function (red, green, blue) {
+    this.BorderColor = { r: red, g: green, b: blue };
+  };
+
+  this.draw = function () {
+    push();
+    textAlign(CENTER, CENTER);
+    fill(this.BackgroudColor.r, this.BackgroudColor.g, this.BackgroudColor.b);
+    if (mouseX >= this.x && this.x + this.w >= mouseX) {
+      if (mouseY >= this.y && mouseY <= this.y + this.h) {
+        fill(
+          this.BackgroudColorHover.r,
+          this.BackgroudColorHover.g,
+          this.BackgroudColorHover.b
+        );
+        if (mouseIsPressed) {
+          this.execute.call();
+        }
+      }
+    }
+    push();
+    stroke(this.BorderColor.r, this.BorderColor.g, this.BorderColor.b);
+    rect(this.x, this.y, this.w, this.h);
+    pop();
+    fill(this.textColor.r, this.textColor.g, this.textColor.b);
+    text(this.inp, this.x, this.y, this.w, this.h);
+    pop();
+  };
+};

@@ -132,6 +132,47 @@ function draw() {
 
 ---
 
+### ButtonLD
+
+`buttonLD` is a function made for [P5.js](https://p5js.org/). **This function works properly only if P5.js is loaded in.**
+<br>
+This function creates and runs a button on a canvas. To do this create the buttonLD object with the button context as the arg.<br>
+
+1. To set the postion of the button use `.setPosition(x, y)`<br>
+2. To set the size of the button use `.setSize(w, h)`<br>
+3. To change the text of the button use `.setText(text)`<br>
+4. To set what happeds on button press use `onPress(functionName)` (This can be the name of funktion or arrow funktion)<br>
+5. To change the color of the button use `.setColor(red, green, blue)`<br>
+6. To change the color of the button when mouse hover over it use `.setColorHover(red, green, blue)`<br>
+7. To change the color of the text use `.setTextColor(red, green, blue)`<br>
+8. To change the color of the border use `.setBorderColor(red, green, blue)`<br>
+
+```js
+let variable;
+function setup() {
+  variable = new buttonLD(button);
+  variable.setPosition(x, y);
+  variable.setSize(w, h);
+  variable.setText(text);
+  variable.setColor(red, green, blue);
+  variable.setColorHover(red, green, blue);
+  variable.setTextColor(red, green, blue);
+  variable.setBorderColor(red, green, blue);
+}
+
+function draw() {
+  variable.draw();
+}
+```
+
 ## Know bugs
 
 1. Non known bugs
+
+```
+
+```
+
+```
+
+```
