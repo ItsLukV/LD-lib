@@ -300,12 +300,12 @@ this.buttonLD = function () {
     console.log("Mouse is pressed");
   };
 
-  this.position = function (x, y) {
+  this.setPosition = function (x, y) {
     this.x = x;
     this.y = y;
   };
 
-  this.size = function (w, h) {
+  this.setSize = function (w, h) {
     this.w = w;
     this.h = h;
   };
