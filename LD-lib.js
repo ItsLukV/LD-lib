@@ -292,6 +292,7 @@ this.buttonLD = function () {
   this.inp;
   this.w = 100;
   this.h = 50;
+  this.textSize = 12;
   this.textColor = { r: 0, g: 0, b: 0 };
   this.BorderColor = { r: 0, g: 0, b: 0 };
   this.BackgroudColor = { r: 220, g: 220, b: 220 };
@@ -300,40 +301,85 @@ this.buttonLD = function () {
     console.log("Mouse is pressed");
   };
 
+  /**
+   * Set the postion of the button
+   * @param {int} x - x position
+   * @param {int} y - x position
+   */
   this.setPosition = function (x, y) {
     this.x = x;
     this.y = y;
   };
 
+  /**
+   * Set the size of the button
+   * @param {int} w - width
+   * @param {int} h - height
+   */
   this.setSize = function (w, h) {
     this.w = w;
     this.h = h;
   };
-
+  /**
+   * Set what to do on the button that is pressed
+   * @param functionName - name of the function or a arrow funktion
+   */
   this.onPress = function (functionName) {
     this.execute = functionName;
   };
-
+  /**
+   * Set/Change the text of the button
+   * @param {string} text - set the label
+   */
   this.setText = function (text) {
     this.inp = text;
   };
-
+  /**
+   * Set/change the color of the button when mouse hover over it use (RGB)
+   * @param {int} red - set the red value
+   * @param {int} green - set the green value
+   * @param {int} blue - set the blue value
+   */
   this.setColorHover = function (red, green, blue) {
     this.BackgroudColorHover = { r: red, g: green, b: blue };
   };
-
+  /**
+   * Set/change the background color of the button (RGB)
+   * @param {int} red - set the red value
+   * @param {int} green - set the green value
+   * @param {int} blue - set the blue value
+   */
   this.setColor = function (red, green, blue) {
     this.BackgroudColor = { r: red, g: green, b: blue };
   };
-
+  /**
+   * Set/change the color of the text (RGB)
+   * @param {int} red - set the red value
+   * @param {int} green - set the green value
+   * @param {int} blue - set the blue value
+   */
   this.setTextColor = function (red, green, blue) {
     this.textColor = { r: red, g: green, b: blue };
   };
-
+  /**
+   * Set/change the color of the border (RGB)
+   * @param {int} red - set the red value
+   * @param {int} green - set the green value
+   * @param {int} blue - set the blue value
+   */
   this.setBorderColor = function (red, green, blue) {
     this.BorderColor = { r: red, g: green, b: blue };
   };
-
+  /**
+   * Set/change the size of the text of the button
+   * @param {int} size - set the size of the font (px)
+   */
+  this.setTextSize = function (size) {
+    this.textSize = size;
+  };
+  /**
+   * Draw the the button
+   */
   this.draw = function () {
     push();
     textAlign(CENTER, CENTER);
@@ -359,6 +405,7 @@ this.buttonLD = function () {
     rect(this.x, this.y, this.w, this.h);
     pop();
     fill(this.textColor.r, this.textColor.g, this.textColor.b);
+    textSize(this.textSize);
     text(this.inp, this.x, this.y, this.w, this.h);
     pop();
   };
