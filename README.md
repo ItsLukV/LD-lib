@@ -8,13 +8,14 @@ CDN link: https://cdn.jsdelivr.net/gh/ItsLukV/LD-lib@v1.0/LD-lib.js
 
 ## Function List
 
-1. [Javascript functions](https://github.com/ItsLukV/LD-lib/tree/test#Javascript-functions)
-   1. [wait](https://github.com/ItsLukV/LD-lib/tree/test#wait)
-   2. [TestLD](https://github.com/ItsLukV/LD-lib/tree/test#testld)
-2. [P5.js addons](https://github.com/ItsLukV/LD-lib/tree/test#P5.js-addons)
-   1. [pageCanvasLD](https://github.com/ItsLukV/LD-lib/tree/test#canvasld)
-   2. [randomColor](https://github.com/ItsLukV/LD-lib/tree/test#randomcolor)
-   3. [grafferLD]()
+1. [Javascript functions](https://github.com/ItsLukV/LD-lib/tree/main#Javascript-functions)
+   1. [wait](https://github.com/ItsLukV/LD-lib/tree/main#wait)
+   2. [TestLD](https://github.com/ItsLukV/LD-lib/tree/main#testld)
+2. [P5.js addons](https://github.com/ItsLukV/LD-lib/tree/main#P5.js-addons)
+   1. [pageCanvasLD](https://github.com/ItsLukV/LD-lib/tree/main#canvasld)
+   2. [randomColor](https://github.com/ItsLukV/LD-lib/tree/main#randomcolor)
+   3. [grafferLD](https://github.com/ItsLukV/LD-lib/tree/main#randomcolor)
+   4. [buttonLD](https://github.com/ItsLukV/LD-lib/tree/main#buttonLD)
 
 ---
 
@@ -168,11 +169,3 @@ function draw() {
 ## Know bugs
 
 1. Non known bugs
-
-```
-
-```
-
-```
-
-```

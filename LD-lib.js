@@ -345,7 +345,11 @@ this.buttonLD = function () {
           this.BackgroudColorHover.g,
           this.BackgroudColorHover.b
         );
-        if (mouseIsPressed) {
+        if (!mouseIsPressed) {
+          this.pressed = false;
+        }
+        if (mouseIsPressed && !this.pressed) {
+          this.pressed = true;
           this.execute.call();
         }
       }
